@@ -1,0 +1,162 @@
+
+# Java related
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.swp
+out/
+target/
+bin/
+*.hprof
+
+# Spring Boot
+*.war
+*.jar
+logs/
+spring.log
+
+# Maven
+.mvn/
+!**/mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+
+# Kotlin specific
+*.kotlin_module
+
+# Groovy specific
+*.groovy
+
+# C++ related
+*.o
+*.obj
+*.so
+*.exe
+*.dll
+*.dylib
+*.app
+*.a
+*.out
+*.gch
+*.swp
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+conanbuildinfo.txt
+conaninfo.txt
+test_detail.xml
+Testing/
+_build/
+*.dSYM/
+*.pdb
+
+# Python related
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtualenv
+*.env
+.env/
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# TypeScript/Angular related
+dist/
+tmp/
+out-tsc/
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# JetBrains
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.cproject
+.settings/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# VS Code
+.vscode/
+
+# Gradle
+.gradle/
+build/
+
+# OS specific files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+*.rej
+*.sublime-project
+*.sublime-workspace
+*.tmp
+*~
+*.~*
+
