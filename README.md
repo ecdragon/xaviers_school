@@ -10,7 +10,21 @@
 
 <br>
 
+## Usage
 
+- To update the project version on a Mac:
+
+  - In a terminal at project root directory (xaviers_school/):
+
+  - Command:
+
+    - ```bash
+      ./gradlew updateProjectVersion
+      ```
+
+      
+
+<br>
 
 ---
 

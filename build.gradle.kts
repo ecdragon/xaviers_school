@@ -64,3 +64,7 @@ allprojects {
 subprojects {
     apply(plugin = "base")
 }
+
+tasks.register("runVincentMac") {
+    dependsOn(":vincent:runMac")
+}

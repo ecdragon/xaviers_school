@@ -21,16 +21,14 @@ application {
     targetMachines.add(machines.windows.x86_64)
 }
 
-tasks.register<Exec>("runMain") {
-    dependsOn(tasks.named("assemble"))
-    group = "application"
-    description = "Runs the main application"
-    commandLine(file("${layout.buildDirectory.get().asFile}/exe/main/debug/vincent").absolutePath)
+// Ensure build task runs after clean
+tasks.named("build") {
+    mustRunAfter(tasks.named("clean"))
 }
 
-tasks.register<Exec>("runTests") {
-    dependsOn(tasks.named("assemble"))
-    group = "verification"
-    description = "Runs the tests"
-    commandLine(file("${layout.buildDirectory.get().asFile}/exe/main/debug/vincent").absolutePath, "test")
+tasks.register<Exec>("runMac") {
+    dependsOn(tasks.named("clean"), tasks.named("build"))
+    group = "application"
+    description = "Cleans, builds (including tests), and runs the Vincent application on a mac (osx)"
+    commandLine(file("${layout.buildDirectory.get().asFile}/exe/main/debug/macos/vincent").absolutePath)
 }

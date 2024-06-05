@@ -47,8 +47,10 @@ void testDoublyLinkedList() {
 }
 
 int main() {
+    std::cout << "Testing Vincent!" << std::endl;
     xaviers_school::Greeter greeter;
     assert(greeter.greeting().compare("Hello, Big World!") == 0);
     testDoublyLinkedList();
+    std::cout << "All Vincent tests passed!" << std::endl;
     return 0;
 }

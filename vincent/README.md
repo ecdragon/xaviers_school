@@ -9,7 +9,21 @@
 
 <br>
 
+## Usage
 
+- To clean, build, test, then run Vincent on a Mac:
+
+  - Navigate terminal to root dir (xaviers_school)
+
+  - command:
+
+    - ```bash
+      ./gradlew runVincentMac
+      ```
+
+      
+
+<br>
 
 ---
 
