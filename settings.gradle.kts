@@ -7,3 +7,5 @@
  */
 
 rootProject.name = "xaviers_school"
+
+include("vincent")

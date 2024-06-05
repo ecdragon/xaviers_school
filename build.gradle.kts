@@ -40,9 +40,9 @@ fun incrementPatchVersion(version: String): String {
     return newVersion
 }
 
-tasks.register("updateVersion") {
+tasks.register("updateProjectVersion") {
     doLast {
-        println("Running updateVersion task")
+        println("Running updateProjectVersion task")
         val currentVersion = getCurrentVersion()
         val newVersion = incrementPatchVersion(currentVersion)
         versionFile.writeText(newVersion)
@@ -55,4 +55,12 @@ version = getCurrentVersion()
 
 allprojects {
     version = rootProject.version
+    repositories {
+        // Repositories for all subprojects, if needed
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply(plugin = "base")
 }
