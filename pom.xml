@@ -1,0 +1,143 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+		 		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 
+	<modelVersion>4.0.0</modelVersion>
+	
+	<name>xaviers_school</name>
+	<description>Xaviers School</description>
+
+	<groupId>com.ecdragon</groupId>
+	<artifactId>xaviers_school</artifactId>
+	<version>1.0.6.20240609.204344</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.0</version>
+		<relativePath/>
+	</parent>
+
+	<properties>
+		<java.version>21</java.version>
+		<spring-cloud.version>2023.0.2</spring-cloud.version>
+	</properties>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<profiles>
+		<profile>
+			<id>vincent</id>
+			<!--
+			-->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>vincent</module>
+			</modules>
+		</profile>
+		<!-- not doing this
+		<profile>
+			<id>read-version</id>
+			<activation>
+				<file>
+					<exists>${basedir}/projectVersion.txt</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<loadfile property="projectVersion" srcFile="${basedir}/projectVersion.txt"/>
+										<echo message="Project version is ${projectVersion}"/>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		-->
+	</profiles>	
+	
+								<!-- Doesn't work - tries to execute in submodules also, 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+									and basedir is relative to submodule dir
+								<loadfile property="projectVersion" srcFile="${basedir}/projectVersion.txt"/>
+								-->
+								<!-- Doesn't work at all 
+								<loadfile property="projectVersion" srcFile="${reactorProjects[0].basedir}/projectVersion.txt"/>
+								-->
+								<!-- Same problem as above 
+								<loadfile property="projectVersion" srcFile="${rootBasedir}/projectVersion.txt"/>
+								<loadfile property="projectVersion" srcFile="${root.basedir}/projectVersion.txt"/>
+								<echo message="Project version is ${projectVersion}"/>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>		
+	</build>
+								-->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>gradleUpdateProjectVersion</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>./gradlew</executable>
+							<arguments>
+								<argument>updateProjectVersion</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

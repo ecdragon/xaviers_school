@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+		 		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.ecdragon</groupId>
+		<artifactId>xaviers_school</artifactId>
+		<version>1.0.6.20240609.204344</version>
+	</parent>
+
+	<artifactId>vincent</artifactId>
+	<packaging>pom</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<!--
+					<execution>
+						<id>invoke-gradle-clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>./gradlew</executable>
+							<arguments>
+								<argument>clean</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>invoke-gradle-build</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>./gradlew</executable>
+							<arguments>
+								<argument>build</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>invoke-gradle-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>./gradlew</executable>
+							<arguments>
+								<argument>test</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					-->
+					<execution>
+						<id>invoke-gradle-run-vincent-mac</id>
+						<phase>install</phase> <!-- or another appropriate phase -->
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>./gradlew</executable>
+							<arguments>
+								<!-- Nope - this is the task to run from parent project
+								<argument>runVincentMac</argument>
+								-->
+								<argument>runMac</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
