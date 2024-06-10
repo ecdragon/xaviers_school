@@ -10,7 +10,7 @@
 
 	<groupId>com.ecdragon</groupId>
 	<artifactId>xaviers_school</artifactId>
-	<version>1.0.6.20240609.204344</version>
+	<version>1.0.6.20240609.204823</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -40,8 +40,6 @@
 	<profiles>
 		<profile>
 			<id>vincent</id>
-			<!--
-			-->
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
@@ -49,72 +47,8 @@
 				<module>vincent</module>
 			</modules>
 		</profile>
-		<!-- not doing this
-		<profile>
-			<id>read-version</id>
-			<activation>
-				<file>
-					<exists>${basedir}/projectVersion.txt</exists>
-				</file>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-							<execution>
-								<phase>initialize</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<target>
-										<loadfile property="projectVersion" srcFile="${basedir}/projectVersion.txt"/>
-										<echo message="Project version is ${projectVersion}"/>
-									</target>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		-->
 	</profiles>	
 	
-								<!-- Doesn't work - tries to execute in submodules also, 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>initialize</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-									and basedir is relative to submodule dir
-								<loadfile property="projectVersion" srcFile="${basedir}/projectVersion.txt"/>
-								-->
-								<!-- Doesn't work at all 
-								<loadfile property="projectVersion" srcFile="${reactorProjects[0].basedir}/projectVersion.txt"/>
-								-->
-								<!-- Same problem as above 
-								<loadfile property="projectVersion" srcFile="${rootBasedir}/projectVersion.txt"/>
-								<loadfile property="projectVersion" srcFile="${root.basedir}/projectVersion.txt"/>
-								<echo message="Project version is ${projectVersion}"/>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>		
-	</build>
-								-->
 
 	<build>
 		<plugins>
